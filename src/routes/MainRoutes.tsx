@@ -4,7 +4,9 @@ import { SearchProvider } from "../contexts";
 
 const HomePage = lazy(() => import("../pages/home/HomePage"));
 const ResultsPage = lazy(() => import("../pages/results/ResultsPage"));
-const ProductPage = lazy(() => import("../pages/single-product/ProductPage"));
+const ProductPage = lazy(
+  () => import("../pages/single-product/ProductDetails")
+);
 export const MainRoutes = () => {
   return (
     <Router>

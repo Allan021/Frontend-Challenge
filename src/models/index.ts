@@ -1,2 +1,3 @@
 export * from "./AutoComplete";
-export * from "./SmallProduct";
+export * from "./Review";
+export * from "./Product";

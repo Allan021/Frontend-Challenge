@@ -1,11 +1,11 @@
 import { challengeApi } from "../apis";
-import { SmallProduct } from "../models";
+import { Product } from "../models";
 import { matchSorter } from "match-sorter";
 interface ProductParams {
   search?: string;
 }
 const getProducts = async ({ search }: ProductParams) => {
-  const response = await challengeApi.get<SmallProduct[]>("/products.json");
+  const response = await challengeApi.get<Product[]>("/products.json");
   const data = response.data;
 
   if (search) {
@@ -16,6 +16,12 @@ const getProducts = async ({ search }: ProductParams) => {
   return response.data;
 };
 
+const getProductById = async (id: string) => {
+  const response = await challengeApi.get<Product>(`/products/${id}.json`);
+  return response.data;
+};
+
 export const ProductService = {
   getProducts,
+  getProductById,
 };

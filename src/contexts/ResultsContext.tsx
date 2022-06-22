@@ -1,8 +1,8 @@
 import { createContext, useContext } from "react";
-import { SmallProduct } from "../models";
+import { Product } from "../models";
 import { useResultsPage } from "../hooks/";
 export interface IResultsState {
-  results: SmallProduct[];
+  results: Product[];
   loading: boolean;
   view: "grid" | "list";
   toggleView: (view: "grid" | "list") => void;

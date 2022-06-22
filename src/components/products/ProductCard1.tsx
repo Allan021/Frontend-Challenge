@@ -2,7 +2,7 @@
 import { Add } from "@mui/icons-material";
 import { Box, Button, Chip, styled } from "@mui/material";
 
-import { SmallProduct } from "../../models";
+import { Product } from "../../models";
 import { FlexBox } from "../flex-box";
 import { LazyImage } from "../images";
 import { FichosaCard } from "../ui/card";
@@ -64,7 +64,7 @@ const StyledImage = styled(LazyImage)(() => ({
   maxWidth: "100%",
 }));
 
-interface Props extends SmallProduct {
+interface Props extends Product {
   hoverEffect?: boolean;
   hideRating?: boolean;
   showProductSize?: boolean;
