@@ -8,7 +8,7 @@ export const FicohsaLogo = () => {
       style={{
         textDecoration: "none",
         color: "inherit",
-        width: "100px",
+        width: "120px",
       }}
     >
       <img

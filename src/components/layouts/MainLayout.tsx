@@ -3,8 +3,14 @@ import { useCallback, useState } from "react";
 import { Sticky } from "../stiky";
 import { Header } from "../ui";
 
-export const MainLayout = ({ children }: any) => {
+interface Props {
+  children: React.ReactNode;
+  navbar?: React.ReactNode;
+}
+
+export const MainLayout = ({ children, navbar }: Props) => {
   // state
+
   const [isFixed, setIsFixed] = useState(false);
   const toggleIsFixed = useCallback((fixed: boolean) => setIsFixed(fixed), []);
   return (
@@ -13,14 +19,12 @@ export const MainLayout = ({ children }: any) => {
         <Header isFixed={isFixed} />
       </Sticky>
 
-      <Box
-        position="relative"
-        sx={{
-          background: "#fff",
-        }}
-      >
-        {children}
-      </Box>
+      {navbar && <div className="section-after-sticky">{navbar}</div>}
+      {!navbar ? (
+        <div className="section-after-sticky">{children}</div>
+      ) : (
+        children
+      )}
     </>
   );
 };

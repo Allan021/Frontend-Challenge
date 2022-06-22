@@ -1,3 +1,3 @@
-export * from "./AutoComplete";
+export * from "./AutoCompleteSearchBox";
 export * from "./input";
 export * from "./results";

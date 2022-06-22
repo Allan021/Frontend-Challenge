@@ -7,7 +7,6 @@ interface LazyImageProps {
   width?: number;
   height?: number;
   layout?: string;
-  objectFit?: string;
   alt?: string;
 }
 

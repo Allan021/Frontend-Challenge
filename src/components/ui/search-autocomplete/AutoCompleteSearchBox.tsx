@@ -1,12 +1,28 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useRef, useState } from "react";
-import { Box, debounce, MenuItem, TextField } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
+import { Box, TextField } from "@mui/material";
 import { FicohsaButton } from "../buttons";
 import { SearchOutlinedIcon } from "./input";
 
-export const SearchBox = () => {
-  const [resultList, setResultList] = useState([]);
+import { AutoCompleteOption } from "../../../models";
+
+interface SearchBoxProps {
+  onSearch?: (value: string) => void;
+  items?: AutoCompleteOption[];
+  initialValue: string;
+}
+
+export const AutoCompleteSearchBox = ({
+  initialValue,
+  onSearch,
+  items,
+}: SearchBoxProps) => {
+  const [value, setValue] = useState("");
   const parentRef = useRef();
+
+  useEffect(() => {
+    setValue(initialValue);
+  }, [initialValue]);
 
   return (
     <Box
@@ -14,6 +30,11 @@ export const SearchBox = () => {
       flex="1 1 0"
       maxWidth="670px"
       mx="auto"
+      onSubmit={(e: any) => {
+        e.preventDefault();
+        onSearch && onSearch(value);
+      }}
+      component={"form"}
       {...{
         ref: parentRef,
       }}
@@ -22,6 +43,10 @@ export const SearchBox = () => {
         variant="outlined"
         placeholder="Searching for..."
         fullWidth
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
         InputProps={{
           sx: {
             height: 44,
@@ -53,10 +78,3 @@ export const SearchBox = () => {
     </Box>
   );
 };
-
-const dummySearchResult = [
-  "Macbook Air 13",
-  "Asus K555LA",
-  "Acer Aspire X453",
-  "iPad Mini 3",
-];

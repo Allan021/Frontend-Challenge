@@ -1,7 +1,7 @@
 import { Box, Button, Grid, styled, useTheme } from "@mui/material";
 import { Carousel } from "../../../components/carousel/Carousel";
 import { LazyImage } from "../../../components/images/";
-import { H1 } from "../../../components/ui/typography/Headings";
+import { H1 } from "../../../components/ui/typography/Typography";
 
 // styled components
 const StyledBox = styled(Box)(() => ({
@@ -90,7 +90,6 @@ export const HomeSlider = () => {
                   <LazyImage
                     height={500}
                     layout="responsive"
-                    objectFit="contain"
                     src="/assets/img/auriculares.png"
                     alt="Home page banner"
                   />

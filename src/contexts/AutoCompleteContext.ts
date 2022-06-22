@@ -19,11 +19,9 @@ export interface AutoCompleteContextProps {
     option: AutoCompleteOption;
     index: number;
   }) => React.HTMLAttributes<HTMLLIElement>;
-
   textFieldClassName?: string;
   openResults?: boolean;
   width?: string;
-  widthWhenFocused?: string;
   placeholder?: string;
   suggestDelaymsec?: number;
   options: AutoCompleteOption[];

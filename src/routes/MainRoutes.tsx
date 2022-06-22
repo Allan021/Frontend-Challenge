@@ -1,14 +1,33 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { HomePage } from "../pages";
+import { SearchProvider } from "../contexts";
 
+const HomePage = lazy(() => import("../pages/home/HomePage"));
+const ResultsPage = lazy(() => import("../pages/results/ResultsPage"));
+const ProductPage = lazy(() => import("../pages/single-product/ProductPage"));
 export const MainRoutes = () => {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-      </Switch>
+      <SearchProvider>
+        <Switch>
+          <Route exact path="/">
+            <Suspense fallback={<div>Loading...</div>}>
+              <HomePage />
+            </Suspense>
+          </Route>
+          <Route path="/items" exact>
+            <Suspense fallback={<div>Loading...</div>}>
+              <ResultsPage />
+            </Suspense>
+          </Route>
+
+          <Route path="/items/:id">
+            <Suspense fallback={<div>Loading...</div>}>
+              <ProductPage />
+            </Suspense>
+          </Route>
+        </Switch>
+      </SearchProvider>
     </Router>
   );
 };

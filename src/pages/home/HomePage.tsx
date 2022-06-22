@@ -1,10 +1,12 @@
 import { MainLayout } from "../../components/layouts";
 import { HomeSlider } from "./components/HomeSlider";
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
     <MainLayout>
       <HomeSlider />
     </MainLayout>
   );
 };
+
+export default HomePage;

@@ -9,10 +9,10 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { layoutConstant } from "../../utils";
-import { FlexBox } from "../flex-box";
-import { FicohsaLogo } from "./logo";
-import { SearchBox } from "./search-autocomplete/SearchAutoComplete";
+import { layoutConstant } from "../../../utils";
+import { FlexBox } from "../../flex-box";
+import { FicohsaLogo } from "../logo";
+import { Search } from "./Search";
 
 // Container for the navbar
 export const NavBarWrapper = styled(Box)(({ theme }) => ({
@@ -66,7 +66,7 @@ export const Header = ({ isFixed = false }: NavBarProps) => {
         </FlexBox>
 
         <FlexBox justifyContent="center" flex="1 1 0">
-          <SearchBox />
+          <Search />
         </FlexBox>
 
         <FlexBox
