@@ -1,15 +1,18 @@
+import { PersonOutline, ShoppingBagOutlined } from "@mui/icons-material";
 import {
+  Badge,
   Box,
   Container,
+  IconButton,
   styled,
   TextField,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import { layoutConstant } from "../../utils";
 import { FlexBox } from "../flex-box";
+import { FicohsaLogo } from "./logo";
+import { SearchBox } from "./search-autocomplete/SearchAutoComplete";
 
 // Container for the navbar
 export const NavBarWrapper = styled(Box)(({ theme }) => ({
@@ -26,12 +29,18 @@ export const NavBarWrapper = styled(Box)(({ theme }) => ({
 interface NavBarProps {
   isFixed?: boolean;
 }
-
+const cartHandle = (
+  <Badge badgeContent={4} color="primary">
+    <Box component={IconButton} ml={2.5} bgcolor="grey.200" p={1.25}>
+      <ShoppingBagOutlined />
+    </Box>
+  </Badge>
+);
 export const Header = ({ isFixed = false }: NavBarProps) => {
   const theme = useTheme();
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [sidenavOpen, setSidenavOpen] = useState(false);
+
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
+
   return (
     <NavBarWrapper>
       <Container
@@ -53,16 +62,26 @@ export const Header = ({ isFixed = false }: NavBarProps) => {
             },
           }}
         >
-          <Link to="/">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Ficohsa_logo.png/640px-Ficohsa_logo.png"
-              alt="logo ficohsa"
-            />
-          </Link>
+          <FicohsaLogo />
         </FlexBox>
 
         <FlexBox justifyContent="center" flex="1 1 0">
-          <TextField label="Buscar" variant="outlined" />
+          <SearchBox />
+        </FlexBox>
+
+        <FlexBox
+          sx={{
+            alignItems: "center",
+            display: {
+              xs: "none",
+              md: "flex",
+            },
+          }}
+        >
+          <Box component={IconButton} ml={2} p={1.25} bgcolor="grey.200">
+            <PersonOutline />
+          </Box>
+          {cartHandle}
         </FlexBox>
       </Container>
     </NavBarWrapper>
