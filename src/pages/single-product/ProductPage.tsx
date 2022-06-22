@@ -7,7 +7,7 @@ const ProductPage = () => {
   const { id } = useParams<ProductParams>();
   return (
     <div>
-      <h1>Product Page {id}</h1>
+      <h1>Product Page in {id}</h1>
     </div>
   );
 };
