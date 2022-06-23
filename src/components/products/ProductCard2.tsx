@@ -24,7 +24,7 @@ export const ProductCard2 = ({
   price,
   off,
   rating,
-  id,
+  slugName,
 }: Props) => {
   return (
     <Wrapper>
@@ -47,7 +47,7 @@ export const ProductCard2 = ({
               />
             )}
 
-            <Link to={`/items/${id}`}>
+            <Link to={`/items/${slugName}`}>
               <FichosaImage
                 src={image}
                 alt={name}
@@ -67,7 +67,7 @@ export const ProductCard2 = ({
             height="100%"
             p={2}
           >
-            <Link to={`/items/${id}`}>
+            <Link to={`/items/${slugName}`}>
               <H5 fontWeight="600" my="0.5rem">
                 {name}
               </H5>

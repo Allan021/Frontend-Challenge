@@ -25,7 +25,7 @@ export const MainRoutes = () => {
             </Suspense>
           </Route>
 
-          <Route path="/items/:id">
+          <Route path="/items/:slugName">
             <Suspense fallback={<LoadingPage />}>
               <ProductPage />
             </Suspense>

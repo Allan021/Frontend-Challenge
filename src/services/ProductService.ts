@@ -18,13 +18,13 @@ const getProducts = async ({ search }: ProductParams) => {
   return data;
 };
 
-const getProductById = async (id: string) => {
-  const response = await challengeApi.get<Product[]>(`/${id}`);
+const getProductBySlugName = async (slugName: string) => {
+  const response = await challengeApi.get<Product>(`/${slugName}`);
   const data = response.data;
   return data;
 };
 
 export const ProductService = {
   getProducts,
-  getProductById,
+  getProductBySlugName,
 };

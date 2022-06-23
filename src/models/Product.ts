@@ -8,8 +8,9 @@ export interface Product {
   image: string;
   rating: number;
   imgGroup: string[];
-  specifications: string[];
+  specification: string[];
   createdAt: string;
   updatedAt: string;
   brand?: string;
+  slugName: string;
 }

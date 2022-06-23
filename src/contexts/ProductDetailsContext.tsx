@@ -9,18 +9,18 @@ export interface IProductDetailsState {
   error: string | null;
 }
 type ProductParams = {
-  id: string;
+  slugName: string;
 };
 export const ProductDetailsContext = createContext({} as IProductDetailsState);
 export const ProductDetailsProvider = ({ children }: any) => {
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setisLoading] = useState(true);
-  const { id } = useParams<ProductParams>();
+  const { slugName } = useParams<ProductParams>();
   const [error, setError] = useState(null);
 
   const fetchProduct = useCallback(async () => {
     try {
-      const product = await ProductService.getProductById(id);
+      const product = await ProductService.getProductBySlugName(slugName);
       setProduct(product ? product : null);
     } catch (error: any) {
       setProduct(null);

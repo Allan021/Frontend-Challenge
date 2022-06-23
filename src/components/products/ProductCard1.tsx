@@ -72,7 +72,7 @@ interface Props extends Product {
 }
 
 export const ProductCard1 = ({
-  id,
+  slugName,
   name,
   price,
   image,
@@ -87,7 +87,7 @@ export const ProductCard1 = ({
       <ImageWrapper>
         <StyledChip color="primary" size="small" label={`${discount}% off`} />
 
-        <Link to={`/items/${id}`}>
+        <Link to={`/items/${slugName}`}>
           <StyledImage src={image} alt={name} />
         </Link>
       </ImageWrapper>
@@ -95,7 +95,7 @@ export const ProductCard1 = ({
       <ContentWrapper>
         <FlexBox>
           <Box flex="1 1 0" minWidth="0px" mr={1}>
-            <Link to={`/items/${id}`}>
+            <Link to={`/items/${slugName}`}>
               <H3
                 mb={1}
                 title={name}

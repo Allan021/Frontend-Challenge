@@ -12,7 +12,7 @@ export const NavBarLayout = ({ children, ...rest }: Props) => {
     <MainLayout navbar={<NavBar />} {...rest}>
       <Container
         sx={{
-          my: "2rem",
+          my: "3rem",
         }}
       >
         {children}

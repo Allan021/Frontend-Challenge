@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import { Sticky } from "../stiky";
 import { Header } from "../ui";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { PageFooter } from "../footer";
 interface Props {
   children: React.ReactNode;
   navbar?: React.ReactNode;
@@ -30,6 +31,12 @@ export const MainLayout = ({ children, navbar, subtitle, title }: Props) => {
       ) : (
         children
       )}
+      <PageFooter
+        sx={{
+          background: "#12447f",
+          margin: 0,
+        }}
+      />
     </HelmetProvider>
   );
 };
