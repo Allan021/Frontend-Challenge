@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import clsx from "clsx";
 import { Slide } from "pure-react-carousel";
-import "pure-react-carousel/dist/react-carousel.es.css";
 import {
   StyledCarouselProvider,
   StyledDot,
