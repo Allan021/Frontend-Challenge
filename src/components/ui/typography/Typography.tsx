@@ -150,6 +150,33 @@ export const H5 = ({
     </StyledBox>
   );
 };
+
+export const H6 = ({
+  children,
+  className,
+  ellipsis,
+  textTransform,
+  ...props
+}: any) => {
+  return (
+    <StyledBox
+      textTransformStyle={textTransform}
+      ellipsis={ellipsis}
+      className={clsx({
+        [className || ""]: true,
+      })}
+      component="h6"
+      mb={0}
+      mt={0}
+      fontSize="14px"
+      fontWeight="600"
+      lineHeight="1.5"
+      {...props}
+    >
+      {children}
+    </StyledBox>
+  );
+};
 export const Paragraph = ({
   children,
   className,

@@ -52,8 +52,8 @@ export const useSearchByUrl = <T extends Object>(initialState: T) => {
     if (Object.keys(auxParams).length > 0) {
       updatedUrl = `?${urlParamsString}`;
     }
-    console.log(updatedUrl);
-    history.push(`${path}${updatedUrl}`);
+
+    history.replace(`/${path}/${updatedUrl}`);
   };
 
   return {

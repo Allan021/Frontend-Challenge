@@ -5,7 +5,7 @@ import { NavBarLayout } from "../../components/layouts/";
 
 const ResultsPage = () => {
   return (
-    <NavBarLayout>
+    <NavBarLayout title="Results | Challenge">
       <ResultsProvider>
         <Box pt={2.5}>
           <SearchControllers />

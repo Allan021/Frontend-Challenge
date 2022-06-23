@@ -6,11 +6,17 @@ interface LazyImageProps {
   src: string;
   width?: number;
   height?: number;
+  onClick?: () => void;
   layout?: string;
   alt?: string;
+  cursor?: string;
 }
 
-const LazyImage = styled(({ borderRadius, ...rest }: LazyImageProps) => (
-  <LazyLoadImage {...rest} />
+export const LazyImage = styled(({ borderRadius, ...rest }: LazyImageProps) => (
+  <LazyLoadImage
+    {...rest}
+    style={{
+      cursor: "pointer",
+    }}
+  />
 ))(compose(spacing, borderRadius, bgcolor));
-export default LazyImage;

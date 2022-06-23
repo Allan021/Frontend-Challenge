@@ -4,11 +4,12 @@ import { Box, Button, Chip, styled } from "@mui/material";
 
 import { Product } from "../../models";
 import { FlexBox } from "../flex-box";
-import { LazyImage } from "../images";
+
 import { FichosaCard } from "../ui/card";
 import { Link } from "react-router-dom";
 import { H3, Span } from "../ui/typography";
 import { FichosaRating } from "../ui/rating";
+import { LazyImage } from "../images/LazyImage";
 
 const StyledCard = styled(FichosaCard)(() => ({
   height: "100%",
@@ -72,7 +73,7 @@ interface Props extends Product {
 
 export const ProductCard1 = ({
   id,
-  title,
+  name,
   price,
   image,
   rating = 5,
@@ -87,7 +88,7 @@ export const ProductCard1 = ({
         <StyledChip color="primary" size="small" label={`${discount}% off`} />
 
         <Link to={`/items/${id}`}>
-          <StyledImage src={image} alt={title} />
+          <StyledImage src={image} alt={name} />
         </Link>
       </ImageWrapper>
 
@@ -97,13 +98,13 @@ export const ProductCard1 = ({
             <Link to={`/items/${id}`}>
               <H3
                 mb={1}
-                title={title}
+                title={name}
                 fontSize="14px"
                 fontWeight="600"
                 className="title"
                 color="text.secondary"
               >
-                {title}
+                {name}
               </H3>
             </Link>
 

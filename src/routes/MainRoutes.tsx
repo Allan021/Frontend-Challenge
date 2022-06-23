@@ -1,6 +1,8 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { SearchProvider } from "../contexts";
+import { Error404 } from "../pages/404/Error404";
+import { LoadingPage } from "../pages/loading";
 
 const HomePage = lazy(() => import("../pages/home/HomePage"));
 const ResultsPage = lazy(() => import("../pages/results/ResultsPage"));
@@ -13,20 +15,24 @@ export const MainRoutes = () => {
       <SearchProvider>
         <Switch>
           <Route exact path="/">
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<LoadingPage />}>
               <HomePage />
             </Suspense>
           </Route>
           <Route path="/items" exact>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<LoadingPage />}>
               <ResultsPage />
             </Suspense>
           </Route>
 
           <Route path="/items/:id">
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<LoadingPage />}>
               <ProductPage />
             </Suspense>
+          </Route>
+
+          <Route path="*">
+            <Error404 />
           </Route>
         </Switch>
       </SearchProvider>

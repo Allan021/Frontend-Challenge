@@ -8,7 +8,10 @@ export const useResultsPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [view, setView] = useState<View>("grid");
-  const toggleView = useCallback((v: View) => () => setView(v), []);
+  const toggleView = useCallback((v: View) => {
+    setView(v);
+  }, []);
+
   const { search } = useSearchContext();
   const fetchProducts = useCallback(async () => {
     try {

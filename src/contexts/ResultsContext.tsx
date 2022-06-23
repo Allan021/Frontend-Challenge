@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { Product } from "../models";
 import { useResultsPage } from "../hooks/";
 export interface IResultsState {
@@ -9,14 +9,15 @@ export interface IResultsState {
 }
 export const ResultsContext = createContext({} as IResultsState);
 export const ResultsProvider = ({ children }: any) => {
-  const { products, isLoading, ...rest } = useResultsPage();
+  const { products, isLoading, view, toggleView } = useResultsPage();
 
   return (
     <ResultsContext.Provider
       value={{
         results: products,
         loading: isLoading,
-        ...rest,
+        view,
+        toggleView,
       }}
     >
       {children}

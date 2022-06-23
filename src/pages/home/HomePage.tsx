@@ -3,7 +3,7 @@ import { HomeSlider } from "./components/HomeSlider";
 
 const HomePage = () => {
   return (
-    <MainLayout>
+    <MainLayout title="Home | Challenge" subtitle="Tu mejor amigo">
       <HomeSlider />
     </MainLayout>
   );

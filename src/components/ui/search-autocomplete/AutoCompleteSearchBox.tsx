@@ -63,6 +63,7 @@ export const AutoCompleteSearchBox = ({
               color="primary"
               variant="contained"
               disableElevation
+              type="submit"
               sx={{
                 px: "3rem",
                 height: "100%",

@@ -5,20 +5,23 @@ interface ProductParams {
   search?: string;
 }
 const getProducts = async ({ search }: ProductParams) => {
-  const response = await challengeApi.get<Product[]>("/products.json");
+  const response = await challengeApi.get<Product[]>("/");
   const data = response.data;
 
   if (search) {
-    const filtered = matchSorter(data, search, { keys: ["name", "id"] });
-    return filtered;
+    //sorry i wasn't able to finish this part
+    return matchSorter(data, search, {
+      keys: ["title", "name", "id"],
+    });
   }
 
-  return response.data;
+  return data;
 };
 
 const getProductById = async (id: string) => {
-  const response = await challengeApi.get<Product>(`/products/${id}.json`);
-  return response.data;
+  const response = await challengeApi.get<Product[]>(`/${id}`);
+  const data = response.data;
+  return data;
 };
 
 export const ProductService = {
